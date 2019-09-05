@@ -9,20 +9,20 @@
 #include <boost/numeric/ublas/io.hpp>
 
 #include "create_data.hpp"
+#include "train.hpp"
 #include "graph.hpp"
 
 namespace po = boost::program_options;
 const std::string version = "0.1.0";
 
 
-int
-main(int argc, char* argv[])
+int main(int argc, char* argv[])
 {
 	int numberOfClasses  = 3;
 	int numberOfNeurons  = 64;
 	float lambda = 1.0 ; 
 	float threshold = 0.00001;
-	int total = 1000;
+	int total = 5;
 	float batchProportion = 0.7;
 	std::string style = "radial";
 
@@ -65,6 +65,7 @@ main(int argc, char* argv[])
 
 	std::cout << "Number of classes: " << numberOfClasses << '\n';
 	std::cout << "Number of neurons: " << numberOfNeurons << '\n';
+	
 
 	//Start Logic
 	// Initialize the random generator
@@ -78,10 +79,9 @@ main(int argc, char* argv[])
 	graphDataset(X,Y);
 
 	arma::mat W1 = arma::randu(numberOfNeurons, X.n_cols + 1);
-	arma::mat W2 = arma::randu(Y.n_cols,X.n_rows + 1);
+	arma::mat W2 = arma::randu(Y.n_cols,W1.n_rows + 1);
 
-
-	
+	matrixes weight = train(W1,W2,X,Y,lambda,batchProportion*total,threshold);
 
 
 	return 0;
