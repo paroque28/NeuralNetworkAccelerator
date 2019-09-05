@@ -6,14 +6,12 @@
 #include <boost/program_options/variables_map.hpp>
 #include <boost/program_options/parsers.hpp>
 #include <boost/numeric/ublas/io.hpp>
+#include "gnuplot-iostream.hpp"
 
-#include "matplotlibcpp.hpp"
 #include "weight_generator.hpp"
 #include "create_data.hpp"
 
 namespace po = boost::program_options;
-namespace plt = matplotlibcpp;
-
 const std::string version = "0.1.0";
 
 
@@ -78,8 +76,24 @@ main(int argc, char* argv[])
 	std::cout << "X: " <<X << std::endl;
 	std::cout << "Y: " <<Y << std::endl;
 
-	//plt::plot({1,3,2,4});
-	//plt::save("./basic.png");
+	std::vector<std::vector<std::pair<double, double> >> graphClasses;
+	for (int classi = 0; classi < numberOfClasses ; classi++){
+		std::vector<std::pair<double, double>> graphClass;
+		for (int i = 0; i < total ; i++){
+			if(Y(i,classi) > 0){
+				graphClass.push_back(std::make_pair(X(i,0), X(i,1)));
+			}
+		}
+		graphClasses.push_back(graphClass);
+	}
+
+	Gnuplot gp;
+	Gnuplot gp(stdout);
+	gp << "set term png\n";
+	gp << "set output test.png\n";
+	gp << "plot '-' with points pointtype 5 title 'pts_A'\n";
+	
+	gp.send2d(graphClasses.front());
 
     matrix W1, W2;
     W1 = weight_generator(3,3);
