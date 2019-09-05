@@ -20,10 +20,9 @@ if(Boost_FOUND)
   include_directories(${Boost_INCLUDE_DIRS})
 endif()
 
-# Find Python
-find_package(PythonLibs 2.7 REQUIRED)
-find_package( PythonInterp 2.7 REQUIRED )
-include_directories(${PYTHON_INCLUDE_DIRS})
+# Find Armadillo
+find_package(Armadillo REQUIRED)
+include_directories(${ARMADILLO_INCLUDE_DIRS})
 
 
 set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
@@ -31,5 +30,4 @@ file(GLOB_RECURSE SRC_FILES "${SRC_DIR}/*.*pp")
 
 add_executable("${PROJECT_EXEC}" "${SRC_FILES}")
 target_link_libraries("${PROJECT_EXEC}" ${Boost_LIBRARIES})
-target_link_libraries("${PROJECT_EXEC}" ${PYTHON_LIBRARIES})
-target_include_directories("${PROJECT_EXEC}" PRIVATE ${PYTHON_INCLUDE_DIRS})
+target_link_libraries("${PROJECT_EXEC}" ${ARMADILLO_LIBRARIES})

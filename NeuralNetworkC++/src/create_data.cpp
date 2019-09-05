@@ -2,27 +2,19 @@
 
 matrixes create_data(int numSamples,int numClasses, std::string shape){
     const std::string radial = "radial";
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<> dis(0, 1);//uniform distribution between 0 and 1
-    std::uniform_real_distribution<> pidis(0, 2* boost::math::constants::pi<double>());//uniform distribution between 0 and 2pi
-    matrix X, Y ;
-    std::vector<matrix> data;
-    X.resize(numSamples,2); // Two dimensions
-    Y.resize(numSamples,numClasses);
+    std::vector<mat> data;
+    mat X = mat(numSamples,2,fill::zeros); // Two dimensions
+    mat Y = mat(numSamples,numClasses,fill::zeros);
 
     if (shape.compare(radial) == 0){
         std::cout << "Radial shape style selected!" << std::endl;
 
-        vector angles, radii, index;
-
-        angles.resize(numSamples);
-        radii.resize(numSamples);
-        index.resize(numSamples);
+        mat angles= mat(numSamples,1,fill::randu);
+        mat radii = mat(numSamples,1,fill::randu);
+        mat index = mat(numSamples,1,fill::zeros);
+        angles  = angles * (2* boost::math::constants::pi<double>());
 
         for (int i = 0 ; i < numSamples; i++){
-            angles(i) = pidis(gen);
-            radii(i) = dis(gen);
             index(i) = floor(radii(i)*numClasses);
             X(i,0) = radii(i)*cos(angles(i));
             X(i,1) = radii(i)*sin(angles(i));

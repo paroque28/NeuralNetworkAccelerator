@@ -1,15 +1,15 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <armadillo>
 
 #include <boost/program_options/options_description.hpp>
 #include <boost/program_options/variables_map.hpp>
 #include <boost/program_options/parsers.hpp>
 #include <boost/numeric/ublas/io.hpp>
-#include "gnuplot-iostream.hpp"
 
-#include "weight_generator.hpp"
 #include "create_data.hpp"
+#include "graph.hpp"
 
 namespace po = boost::program_options;
 const std::string version = "0.1.0";
@@ -22,7 +22,7 @@ main(int argc, char* argv[])
 	int numberOfNeurons  = 64;
 	float lambda = 1.0 ; 
 	float threshold = 0.00001;
-	int total = 10;
+	int total = 1000;
 	float batchProportion = 0.7;
 	std::string style = "radial";
 
@@ -67,37 +67,22 @@ main(int argc, char* argv[])
 	std::cout << "Number of neurons: " << numberOfNeurons << '\n';
 
 	//Start Logic
+	// Initialize the random generator
+	arma::arma_rng::set_seed_random();
 
 	matrixes data;
-	matrix X, Y;
 	data = create_data(total, numberOfClasses, style);
-	X = data[0];
-	Y = data[1];
-	std::cout << "X: " <<X << std::endl;
-	std::cout << "Y: " <<Y << std::endl;
+	arma::mat X = data[0];
+	arma::mat Y = data[1];
 
-	std::vector<std::vector<std::pair<double, double> >> graphClasses;
-	for (int classi = 0; classi < numberOfClasses ; classi++){
-		std::vector<std::pair<double, double>> graphClass;
-		for (int i = 0; i < total ; i++){
-			if(Y(i,classi) > 0){
-				graphClass.push_back(std::make_pair(X(i,0), X(i,1)));
-			}
-		}
-		graphClasses.push_back(graphClass);
-	}
+	graphDataset(X,Y);
 
-	Gnuplot gp;
-	Gnuplot gp(stdout);
-	gp << "set term png\n";
-	gp << "set output test.png\n";
-	gp << "plot '-' with points pointtype 5 title 'pts_A'\n";
+	arma::mat W1 = arma::randu(numberOfNeurons, X.n_cols + 1);
+	arma::mat W2 = arma::randu(Y.n_cols,X.n_rows + 1);
+
+
 	
-	gp.send2d(graphClasses.front());
 
-    matrix W1, W2;
-    W1 = weight_generator(3,3);
-    std::cout << "W1: " <<W1 << std::endl;
 
 	return 0;
 }
