@@ -3,11 +3,11 @@
 mat predict(mat W1, mat W2, mat X){
     if(X.n_cols < 3) X = join_rows(ones<mat>(X.n_rows,1),X);
     mat P1 = X*W1.t();
-
     mat G1 = 1 / (1+exp(-P1));
-    mat activation1 = join_rows(ones<mat>(G1.n_rows,1),G1);
+    mat sigmoid1 = join_rows(ones<mat>(G1.n_rows,1),G1);
 
-    mat P2= activation1*W2.t();
+
+    mat P2= sigmoid1*W2.t();
     mat G2 = 1 / (1+exp(-P2));
 
     return G2;
@@ -18,9 +18,9 @@ std::vector<mat> gradtarget(mat W1, mat W2, mat X, mat Y){
     mat P1 = X*W1.t();
 
     mat G1 = 1 / (1+exp(-P1));
-    mat activation1 = join_rows(ones<mat>(G1.n_rows,1),G1);
+    mat sigmoid1 = join_rows(ones<mat>(G1.n_rows,1),G1);
 
-    mat P2= activation1*W2.t();
+    mat P2= sigmoid1*W2.t();
     mat Y_hat = 1 / (1+exp(-P2));
 
     // Back-propagation
@@ -31,7 +31,7 @@ std::vector<mat> gradtarget(mat W1, mat W2, mat X, mat Y){
     mat derivZj = (1 - G1) % G1;
     mat sigmaJ = derivZj % sumDeltaJ;
     mat gW1 = sigmaJ.t()*X;
-    mat gW2 = delta_2.t()*activation1;
+    mat gW2 = delta_2.t()*sigmoid1;
 
     //Normalization
 
@@ -47,9 +47,8 @@ std::vector<mat> gradtarget(mat W1, mat W2, mat X, mat Y){
 double target(mat W1, mat W2, mat X, mat Y){
     mat Y_hat=predict(W1,W2,X);
     mat delta = Y - Y_hat;
-    std::cout << "delta:\n" << delta;
     mat delta_2 = square(delta);
-    double sumDelta = sum(sum(delta_2));
+    double sumDelta = accu(accu(delta_2));
     return 0.5 * sumDelta;
 }
 
@@ -67,27 +66,35 @@ std::vector<mat> train(mat W1,mat W2,mat X_in,mat Y, float lambda,int batchSize,
     mat XY_samples = shuffle(join_rows(X,Y));
     mat X_samples = XY_samples.cols(0, X.n_cols-1);
     mat Y_samples = XY_samples.cols(X.n_cols, XY_samples.n_cols-1);
-
+    
     do {
         iterations++;
         J_0 = target(W1,W2,X,Y);
-        std::cout << "|J - J_0|: " << abs(J-J_0) << std::endl;
         
         gWeights = gradtarget(W1,W2,X_samples,Y_samples);
         mat gW1 = gWeights[0];
         mat gW2 = gWeights[1];
 
         W  = join_cols(vectorise(W1),vectorise(W2));
-        dW = join_cols(vectorise(gW1),vectorise(W2));
+        dW = join_cols(vectorise(gW1),vectorise(gW2));
 
-        W = W-lambda*dW;
+        W = W-(lambda*dW);
+
+        W1 = reshape(W.rows(0,W1.n_rows*W1.n_cols-1), W1.n_rows, W1.n_cols);
+        W2 = reshape(W.rows(W1.n_rows*W1.n_cols,W.n_rows-1), W2.n_rows, W2.n_cols);
 
         J = target(W1,W2,X,Y);
+        if (iterations % 100 == 0 ){
+            std::cout << "|J - J_0|: " << fabs(J-J_0) << std::endl;
+        }
     }
-    while(abs(J-J_0)>threshold);
+    while(fabs(J-J_0)>threshold);
 
+    std::cout << "Y:\n" << Y;
+    std::cout << "Y_hat:\n" << predict(W1,W2,X);
     std::cout << "Iterations: " << iterations << '\n';
     std::cout << "Error: " << J << '\n';
+    
 
     weights.push_back(W1);
     weights.push_back(W2);

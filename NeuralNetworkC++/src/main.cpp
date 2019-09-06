@@ -18,11 +18,11 @@ const std::string version = "0.1.0";
 
 int main(int argc, char* argv[])
 {
-	int numberOfClasses  = 3;
+	int numberOfClasses  = 2;
 	int numberOfNeurons  = 64;
 	float lambda = 1.0 ; 
-	float threshold = 0.00001;
-	int total = 1000;
+	float threshold = 0.0000001;
+	int total = 10;
 	float batchProportion = 0.7;
 	std::string style = "radial";
 
