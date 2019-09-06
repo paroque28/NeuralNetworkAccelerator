@@ -1,4 +1,4 @@
-#include "train.hpp" 
+#include "nn.hpp" 
 
 mat predict(mat W1, mat W2, mat X){
     if(X.n_cols < 3) X = join_rows(ones<mat>(X.n_rows,1),X);
@@ -29,7 +29,6 @@ std::vector<mat> gradtarget(mat W1, mat W2, mat X, mat Y){
 
     mat sumDeltaJ = delta_2*W2.cols(1, W2.n_cols-1);
     mat derivZj = (1 - G1) % G1;
-    std::cout << "." << std::endl;
     mat sigmaJ = derivZj % sumDeltaJ;
     mat gW1 = sigmaJ.t()*X;
     mat gW2 = delta_2.t()*activation1;
@@ -47,16 +46,18 @@ std::vector<mat> gradtarget(mat W1, mat W2, mat X, mat Y){
 
 double target(mat W1, mat W2, mat X, mat Y){
     mat Y_hat=predict(W1,W2,X);
-
-    double delta_2 = sum(sum(square(Y - Y_hat)));
-    return 0.5 * delta_2;
+    mat delta = Y - Y_hat;
+    std::cout << "delta:\n" << delta;
+    mat delta_2 = square(delta);
+    double sumDelta = sum(sum(delta_2));
+    return 0.5 * sumDelta;
 }
 
 std::vector<mat> train(mat W1,mat W2,mat X_in,mat Y, float lambda,int batchSize, float threshold){
     std::cout << "Batch Size: " << batchSize << '\n';
     std::vector<mat> weights;
     int iterations = 0;
-    double J, J_initial;
+    double J, J_0;
 
     std::vector<mat> gWeights;
     mat W, dW; // [W1 W2]
@@ -69,8 +70,8 @@ std::vector<mat> train(mat W1,mat W2,mat X_in,mat Y, float lambda,int batchSize,
 
     do {
         iterations++;
-        J_initial = target(W1,W2,X,Y);
-        std::cout << "J: " << J_initial << std::endl;
+        J_0 = target(W1,W2,X,Y);
+        std::cout << "|J - J_0|: " << abs(J-J_0) << std::endl;
         
         gWeights = gradtarget(W1,W2,X_samples,Y_samples);
         mat gW1 = gWeights[0];
@@ -83,7 +84,10 @@ std::vector<mat> train(mat W1,mat W2,mat X_in,mat Y, float lambda,int batchSize,
 
         J = target(W1,W2,X,Y);
     }
-    while(abs(J-J_initial)<=threshold);
+    while(abs(J-J_0)>threshold);
+
+    std::cout << "Iterations: " << iterations << '\n';
+    std::cout << "Error: " << J << '\n';
 
     weights.push_back(W1);
     weights.push_back(W2);

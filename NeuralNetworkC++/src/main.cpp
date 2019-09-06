@@ -9,7 +9,7 @@
 #include <boost/numeric/ublas/io.hpp>
 
 #include "create_data.hpp"
-#include "train.hpp"
+#include "nn.hpp"
 #include "graph.hpp"
 
 namespace po = boost::program_options;
@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
 	int numberOfNeurons  = 64;
 	float lambda = 1.0 ; 
 	float threshold = 0.00001;
-	int total = 5;
+	int total = 1000;
 	float batchProportion = 0.7;
 	std::string style = "radial";
 
@@ -62,7 +62,9 @@ int main(int argc, char* argv[])
 
 	if (options.count("numberOfClasses") > 0) numberOfClasses = options["numberOfClasses"].as<int>();
 	if (options.count("numberOfNeurons") > 0) numberOfNeurons = options["numberOfNeurons"].as<int>();
+	if (options.count("totalSize") > 0) total = options["totalSize"].as<int>();
 
+	std::cout.precision(17);
 	std::cout << "Number of classes: " << numberOfClasses << '\n';
 	std::cout << "Number of neurons: " << numberOfNeurons << '\n';
 	
