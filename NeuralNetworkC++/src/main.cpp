@@ -18,12 +18,12 @@ const std::string version = "0.1.0";
 
 int main(int argc, char* argv[])
 {
-	int numberOfClasses  = 2;
+	int numberOfClasses  = 3;
 	int numberOfNeurons  = 64;
-	float lambda = 1.0 ; 
-	float threshold = 0.0000001;
-	int total = 10;
-	float batchProportion = 0.7;
+	double lambda = 1.0 ; 
+	double threshold = 0.0000001;
+	int total = 1000;
+	double batchProportion = 0.7;
 	std::string style = "radial";
 
 	po::options_description desc("Options");
@@ -34,11 +34,11 @@ int main(int argc, char* argv[])
 			"Number of Classes generated.")
 		("numberOfNeurons,n", po::value<int>(),
 			"Number of Neurons for training.")
-		("lambda,l", po::value<float>(),
+		("lambda,l", po::value<double>(),
 			"Lambda for steps.")
-		("threshold,t", po::value<float>(),
+		("threshold,t", po::value<double>(),
 			"Thredshold for stop condition.")
-		("batchSize,b", po::value<float>(),
+		("batchSize,b", po::value<double>(),
 			"Batch size of training process.")
 		("style,s", po::value<std::string>(),
 			"Style of dataset generated.")
@@ -63,6 +63,9 @@ int main(int argc, char* argv[])
 	if (options.count("numberOfClasses") > 0) numberOfClasses = options["numberOfClasses"].as<int>();
 	if (options.count("numberOfNeurons") > 0) numberOfNeurons = options["numberOfNeurons"].as<int>();
 	if (options.count("totalSize") > 0) total = options["totalSize"].as<int>();
+	if (options.count("threshold") > 0) threshold = options["threshold"].as<double>();
+	if (options.count("batchSize") > 0) batchProportion = options["batchSize"].as<double>();
+	if (options.count("lambda") > 0) lambda = options["lambda"].as<double>();
 
 	std::cout.precision(17);
 	std::cout << "Number of classes: " << numberOfClasses << '\n';
@@ -85,6 +88,9 @@ int main(int argc, char* argv[])
 
 	matrixes weight = train(W1,W2,X,Y,lambda,batchProportion*total,threshold);
 
+	W1 = weight[0]; W2 = weight[1];
+
+	graphFunction(W1,W2);
 
 	return 0;
 }

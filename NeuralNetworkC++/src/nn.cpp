@@ -63,12 +63,13 @@ std::vector<mat> train(mat W1,mat W2,mat X_in,mat Y, float lambda,int batchSize,
 
     mat X = join_rows(ones<mat>(X_in.n_rows,1),X_in);
 
-    mat XY_samples = shuffle(join_rows(X,Y));
-    mat X_samples = XY_samples.cols(0, X.n_cols-1);
-    mat Y_samples = XY_samples.cols(X.n_cols, XY_samples.n_cols-1);
+    mat XY_samples, X_samples, Y_samples;
     
     do {
         iterations++;
+        XY_samples = shuffle(join_rows(X,Y));
+        X_samples = XY_samples.cols(0, X.n_cols-1);
+        Y_samples = XY_samples.cols(X.n_cols, XY_samples.n_cols-1);
         J_0 = target(W1,W2,X,Y);
         
         gWeights = gradtarget(W1,W2,X_samples,Y_samples);
@@ -87,11 +88,14 @@ std::vector<mat> train(mat W1,mat W2,mat X_in,mat Y, float lambda,int batchSize,
         if (iterations % 100 == 0 ){
             std::cout << "|J - J_0|: " << fabs(J-J_0) << std::endl;
         }
+        if (iterations % 500 == 0 ){
+            graphFunction(W1,W2);
+        }
     }
     while(fabs(J-J_0)>threshold);
 
-    std::cout << "Y:\n" << Y;
-    std::cout << "Y_hat:\n" << predict(W1,W2,X);
+    // std::cout << "Y:\n" << Y;
+    // std::cout << "Y_hat:\n" << predict(W1,W2,X);
     std::cout << "Iterations: " << iterations << '\n';
     std::cout << "Error: " << J << '\n';
     
