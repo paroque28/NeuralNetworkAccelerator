@@ -21,9 +21,9 @@ int main(int argc, char* argv[])
 	int numberOfClasses  = 3;
 	int numberOfNeurons  = 64;
 	double lambda = 1.0 ; 
-	double threshold = 0.0000001;
+	double threshold = 0.0001;
 	int total = 1000;
-	double batchProportion = 0.7;
+	double batchProportion = 0.5;
 	std::string style = "radial";
 
 	po::options_description desc("Options");
@@ -70,7 +70,10 @@ int main(int argc, char* argv[])
 	std::cout.precision(17);
 	std::cout << "Number of classes: " << numberOfClasses << '\n';
 	std::cout << "Number of neurons: " << numberOfNeurons << '\n';
-	
+	std::cout << "Lambda: " << lambda << '\n';
+	std::cout << "Threshold: " << threshold << '\n';
+	std::cout << "Total Size: " << total << '\n';
+	std::cout << "Batch Proportion: " << batchProportion << '\n';
 
 	//Start Logic
 	// Initialize the random generator

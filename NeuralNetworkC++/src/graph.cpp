@@ -54,7 +54,7 @@ void graphFunction(mat W1, mat W2){
 	for (int classi = 0; classi < numClasses ; classi++){
 		std::vector<std::pair<double, double>> graphClass;
 		for (int i = 0; i < total ; i++){
-			if(Y(i,classi) > 0.9){
+			if(Y(i,classi) > 0.8){
 				graphClass.push_back(std::make_pair(X(i,0), X(i,1)));
 			}
 		}

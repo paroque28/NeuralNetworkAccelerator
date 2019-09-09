@@ -15,7 +15,7 @@ set(CMAKE_CXX_FLAGS "-std=c++11 -pedantic")
 set(Boost_USE_STATIC_LIBS        ON) # only find static libs
 set(Boost_USE_MULTITHREADED      ON)
 set(Boost_USE_STATIC_RUNTIME    OFF)
-find_package(Boost 1.65.1 COMPONENTS program_options iostreams system filesystem)
+find_package(Boost COMPONENTS program_options iostreams system filesystem)
 if(Boost_FOUND)
   include_directories(${Boost_INCLUDE_DIRS})
 endif()
