@@ -88,7 +88,7 @@ int main(int argc, char* argv[])
 
 	arma::mat W1 = arma::randu(numberOfNeurons, X.n_cols + 1);
 	arma::mat W2 = arma::randu(Y.n_cols,W1.n_rows + 1);
-
+	
 	matrixes weight = train(W1,W2,X,Y,lambda,batchProportion*total,threshold);
 
 	W1 = weight[0]; W2 = weight[1];

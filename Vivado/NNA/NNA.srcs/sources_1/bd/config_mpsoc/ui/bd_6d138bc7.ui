@@ -1,0 +1,41 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace port ddr4_sdram -pg 1 -lvl 4 -x 1420 -y 70 -defaultsOSRD
+preplace port uart2_pl -pg 1 -lvl 4 -x 1420 -y 730 -defaultsOSRD
+preplace port dip_switches_8bits -pg 1 -lvl 4 -x 1420 -y 590 -defaultsOSRD
+preplace port led_8bits -pg 1 -lvl 4 -x 1420 -y 610 -defaultsOSRD
+preplace port push_buttons_5bits -pg 1 -lvl 4 -x 1420 -y 880 -defaultsOSRD
+preplace port user_si570_sysclk -pg 1 -lvl 0 -x -460 -y -150 -defaultsOSRD
+preplace port reset -pg 1 -lvl 0 -x -460 -y -170 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 2 -x 320 -y 450 -defaultsOSRD
+preplace inst axi_dma_0 -pg 1 -lvl 2 -x 320 -y 10 -defaultsOSRD
+preplace inst axi_smc -pg 1 -lvl 1 -x -240 -y 200 -defaultsOSRD
+preplace inst rst_ps8_0_99M -pg 1 -lvl 3 -x 880 -y 150 -defaultsOSRD
+preplace inst ps8_0_axi_periph -pg 1 -lvl 3 -x 880 -y 350 -defaultsOSRD
+preplace inst axis_data_fifo_0 -pg 1 -lvl 2 -x 320 -y -230 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 2 -x 320 -y 300 -defaultsOSRD
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 3 -430 70 -90 190 690
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 2 1 700 130n
+preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 0 4 -440 60 -70 180 680 40 1060
+preplace netloc xlconcat_0_dout 1 1 2 -50 540 620
+preplace netloc axi_dma_0_s2mm_introut 1 1 2 -70J 220 620
+preplace netloc axi_dma_0_mm2s_introut 1 1 2 -50J 230 650
+preplace netloc axi_dma_0_M_AXI_SG 1 0 3 -400 90 -80 150 660
+preplace netloc axi_smc_M00_AXI 1 1 1 -100 200n
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 2 1 710J 290n
+preplace netloc ps8_0_axi_periph_M00_AXI 1 1 3 -50 170 670 50 1050J
+preplace netloc axi_dma_0_M_AXI_MM2S 1 0 3 -420 80 -60J 140 630
+preplace netloc axi_dma_0_M_AXI_S2MM 1 0 3 -410 100 -100J 160 640
+preplace netloc axi_dma_0_M_AXIS_MM2S 1 1 2 -50 -310 680
+preplace netloc axis_data_fifo_0_M_AXIS 1 1 2 -60 -120 630
+levelinfo -pg 1 -460 -240 320 880 1420
+pagesize -pg 1 -db -bbox -sgen -630 -400 1600 960
+"
+}
+{
+   "da_axi4_cnt":"4",
+   "da_clkrst_cnt":"1",
+   "da_zynq_ultra_ps_e_cnt":"1"
+}

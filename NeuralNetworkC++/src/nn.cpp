@@ -2,14 +2,16 @@
 
 mat predict(mat W1, mat W2, mat X){
     if(X.n_cols < 3) X = join_rows(ones<mat>(X.n_rows,1),X);
-    mat P1 = X*W1.t();
-    mat G1 = 1 / (1+exp(-P1));
+    // std::cout << "---------" << std::endl;
+    // std::cout << size(X)<< std::endl;
+    // std::cout << size(W1)<< std::endl;
+    mat G1 = 1 / (1+exp(-(X*W1.t())));
     mat sigmoid1 = join_rows(ones<mat>(G1.n_rows,1),G1);
-
-
+    // std::cout << size(sigmoid1)<< std::endl;
+    // std::cout << size(W2)<< std::endl;
     mat P2= sigmoid1*W2.t();
     mat G2 = 1 / (1+exp(-P2));
-
+    // std::cout << size(G2)<< std::endl;
     return G2;
 }
 

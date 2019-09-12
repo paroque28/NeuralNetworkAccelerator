@@ -1,0 +1,6 @@
+set_property SRC_FILE_INFO {cfile:c:/Users/prodrigu/git/simpleNeuralNetwork/Vivado/NNA/NNA.srcs/sources_1/bd/config_mpsoc/ip/config_mpsoc_auto_pc_1/config_mpsoc_auto_pc_1_ooc.xdc rfile:../../../../../NNA.srcs/sources_1/bd/config_mpsoc/ip/config_mpsoc_auto_pc_1/config_mpsoc_auto_pc_1_ooc.xdc id:1 order:EARLY scoped_inst:inst} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/prodrigu/git/simpleNeuralNetwork/Vivado/NNA/NNA.runs/config_mpsoc_auto_pc_1_synth_1/dont_touch.xdc rfile:../../../dont_touch.xdc id:2} [current_design]
+set_property src_info {type:SCOPED_XDC file:1 line:55 export:INPUT save:INPUT read:FILTER_OUT_OF_CONTEXT} [current_design]
+create_clock -period 10.001 -name aclk [get_ports aclk]
+set_property src_info {type:XDC file:2 line:9 export:INPUT save:INPUT read:READ} [current_design]
+set_property DONT_TOUCH true [get_cells inst]
