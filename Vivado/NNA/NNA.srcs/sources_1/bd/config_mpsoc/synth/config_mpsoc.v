@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-//Date        : Wed Sep 11 17:33:37 2019
+//Date        : Sun Sep 22 09:45:26 2019
 //Host        : SJO-PRODRIGU-L1 running 64-bit major release  (build 9200)
 //Command     : generate_target config_mpsoc.bd
 //Design      : config_mpsoc
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "config_mpsoc,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=config_mpsoc,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=10,numReposBlks=8,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=4,da_clkrst_cnt=1,da_zynq_ultra_ps_e_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "config_mpsoc.hwdef" *) 
+(* CORE_GENERATION_INFO = "config_mpsoc,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=config_mpsoc,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=10,numReposBlks=8,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_clkrst_cnt=1,da_zynq_ultra_ps_e_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "config_mpsoc.hwdef" *) 
 module config_mpsoc
    (reset);
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input reset;
@@ -1092,7 +1092,7 @@ module s00_couplers_imp_G4YDFE
   assign s00_couplers_to_auto_ds_WLAST = S_AXI_wlast;
   assign s00_couplers_to_auto_ds_WSTRB = S_AXI_wstrb[15:0];
   assign s00_couplers_to_auto_ds_WVALID = S_AXI_wvalid;
-  config_mpsoc_auto_ds_1 auto_ds
+  config_mpsoc_auto_ds_0 auto_ds
        (.m_axi_araddr(auto_ds_to_auto_pc_ARADDR),
         .m_axi_arburst(auto_ds_to_auto_pc_ARBURST),
         .m_axi_arcache(auto_ds_to_auto_pc_ARCACHE),
@@ -1169,7 +1169,7 @@ module s00_couplers_imp_G4YDFE
         .s_axi_wready(s00_couplers_to_auto_ds_WREADY),
         .s_axi_wstrb(s00_couplers_to_auto_ds_WSTRB),
         .s_axi_wvalid(s00_couplers_to_auto_ds_WVALID));
-  config_mpsoc_auto_pc_1 auto_pc
+  config_mpsoc_auto_pc_0 auto_pc
        (.aclk(S_ACLK_1),
         .aresetn(S_ARESETN_1),
         .m_axi_araddr(auto_pc_to_s00_couplers_ARADDR),

@@ -1,0 +1,8 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../NNA.ip_user_files/bd/config_mpsoc/ip/config_mpsoc_axi_dma_0_0/sim/config_mpsoc_axi_dma_0_0.vhd" \
+"../../../../NNA.ip_user_files/bd/config_mpsoc/ip/config_mpsoc_axi_smc_0/bd_0/ip/ip_1/sim/bd_e8ed_psr_aclk_0.vhd" \
+"../../../../NNA.ip_user_files/bd/config_mpsoc/ip/config_mpsoc_rst_ps8_0_99M_1/sim/config_mpsoc_rst_ps8_0_99M_1.vhd" \
+
+# Do not sort compile order
+nosort

@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++11 -pedantic -O0 -g -ggdb  -rdynamic CMakeFiles/main.dir/src/create_data.cpp.o CMakeFiles/main.dir/src/graph.cpp.o CMakeFiles/main.dir/src/main.cpp.o CMakeFiles/main.dir/src/nn.cpp.o CMakeFiles/main.dir/src/weight.cpp.o  -o main -Wl,-Bstatic -lboost_program_options -lboost_iostreams -lboost_system -lboost_filesystem -lboost_regex -Wl,-Bdynamic -larmadillo 

@@ -1,0 +1,6 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../NNA.ip_user_files/bd/PEtest/ip/PEtest_pe_0_0/pe_floating_point_v7_1_i0/sim/pe_floating_point_v7_1_i0.vhd" \
+
+# Do not sort compile order
+nosort

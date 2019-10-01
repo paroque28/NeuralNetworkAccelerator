@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sat Sep 28 19:39:44 2019
+# Process ID: 104508
+# Current directory: C:/Users/prodrigu/git/simpleNeuralNetwork/Vivado/NNA/NNA.sim/PE/behav/xsim
+# Command line: wbtcv.exe -mode batch -source C:/Users/prodrigu/git/simpleNeuralNetwork/Vivado/NNA/NNA.sim/PE/behav/xsim/xsim.dir/PEtest_wrapper_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Users/prodrigu/git/simpleNeuralNetwork/Vivado/NNA/NNA.sim/PE/behav/xsim/webtalk.log
+# Journal file: C:/Users/prodrigu/git/simpleNeuralNetwork/Vivado/NNA/NNA.sim/PE/behav/xsim\webtalk.jou
+#-----------------------------------------------------------
+source C:/Users/prodrigu/git/simpleNeuralNetwork/Vivado/NNA/NNA.sim/PE/behav/xsim/xsim.dir/PEtest_wrapper_behav/webtalk/xsim_webtalk.tcl -notrace

@@ -1,0 +1,27 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace port clk_100MHz -pg 1 -lvl 0 -x -10 -y 170 -defaultsOSRD
+preplace port rst_in -pg 1 -lvl 0 -x -10 -y -10 -defaultsOSRD
+preplace portBus w_out -pg 1 -lvl 2 -x 720 -y -60 -defaultsOSRD
+preplace portBus x_out -pg 1 -lvl 2 -x 720 -y -10 -defaultsOSRD
+preplace portBus result -pg 1 -lvl 2 -x 720 -y 20 -defaultsOSRD
+preplace portBus x_in -pg 1 -lvl 0 -x -10 -y -60 -defaultsOSRD
+preplace portBus w_in -pg 1 -lvl 0 -x -10 -y -100 -defaultsOSRD
+preplace inst pe_0 -pg 1 -lvl 1 -x 520 -y 0 -defaultsOSRD
+preplace netloc pe_0_w_out 1 1 1 690 -60n
+preplace netloc pe_0_x_out 1 1 1 690 -10n
+preplace netloc pe_0_result_out 1 1 1 N 20
+preplace netloc x_in_1 1 0 1 20 -60n
+preplace netloc w_in_1 1 0 1 30 -100n
+preplace netloc rst_in_1 1 0 1 10 -10n
+preplace netloc clk_100MHz_1 1 0 1 20 30n
+levelinfo -pg 1 -10 520 720
+pagesize -pg 1 -db -bbox -sgen -140 -140 850 390
+"
+}
+{
+   "da_board_cnt":"2",
+   "da_clkrst_cnt":"1"
+}

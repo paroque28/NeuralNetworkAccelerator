@@ -1,0 +1,10 @@
+pe_floating_point_v7_1_i0.vhd,vhdl,xil_defaultlib,../../../bd/PEtest/ip/PEtest_pe_0_0/pe_floating_point_v7_1_i0/sim/pe_floating_point_v7_1_i0.vhd,incdir="$ref_dir/../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl"incdir="../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl"
+synth_reg.v,verilog,xil_defaultlib,../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl/synth_reg.v,incdir="$ref_dir/../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl"incdir="../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl"
+synth_reg_w_init.v,verilog,xil_defaultlib,../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl/synth_reg_w_init.v,incdir="$ref_dir/../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl"incdir="../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl"
+convert_type.v,verilog,xil_defaultlib,../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl/convert_type.v,incdir="$ref_dir/../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl"incdir="../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl"
+xlclockdriver_rd.v,verilog,xil_defaultlib,../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl/xlclockdriver_rd.v,incdir="$ref_dir/../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl"incdir="../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl"
+pe_entity_declarations.v,verilog,xil_defaultlib,../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl/pe_entity_declarations.v,incdir="$ref_dir/../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl"incdir="../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl"
+pe.v,verilog,xil_defaultlib,../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl/pe.v,incdir="$ref_dir/../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl"incdir="../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl"
+PEtest_pe_0_0.v,verilog,xil_defaultlib,../../../bd/PEtest/ip/PEtest_pe_0_0/sim/PEtest_pe_0_0.v,incdir="$ref_dir/../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl"incdir="../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl"
+PEtest.v,verilog,xil_defaultlib,../../../bd/PEtest/sim/PEtest.v,incdir="$ref_dir/../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl"incdir="../../../../NNA.srcs/PE/bd/PEtest/ipshared/e39a/hdl"
+glbl.v,Verilog,xil_defaultlib,glbl.v

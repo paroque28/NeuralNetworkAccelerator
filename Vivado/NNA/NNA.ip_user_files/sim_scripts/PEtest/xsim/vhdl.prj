@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../bd/PEtest/ip/PEtest_pe_0_0/pe_floating_point_v7_1_i0/sim/pe_floating_point_v7_1_i0.vhd" \
+
+nosort

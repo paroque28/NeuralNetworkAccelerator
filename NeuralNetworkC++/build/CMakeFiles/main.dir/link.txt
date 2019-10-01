@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++11 -pedantic -O0 -g -ggdb  -rdynamic CMakeFiles/main.dir/src/main.cpp.o  -o main -Wl,-Bstatic -lboost_program_options -Wl,-Bdynamic 

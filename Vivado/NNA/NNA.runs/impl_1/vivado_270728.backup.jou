@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sun Sep 22 09:53:56 2019
+# Process ID: 270728
+# Current directory: C:/Users/prodrigu/git/simpleNeuralNetwork/Vivado/NNA/NNA.runs/impl_1
+# Command line: vivado.exe -log config_mpsoc_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source config_mpsoc_wrapper.tcl -notrace
+# Log file: C:/Users/prodrigu/git/simpleNeuralNetwork/Vivado/NNA/NNA.runs/impl_1/config_mpsoc_wrapper.vdi
+# Journal file: C:/Users/prodrigu/git/simpleNeuralNetwork/Vivado/NNA/NNA.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source config_mpsoc_wrapper.tcl -notrace

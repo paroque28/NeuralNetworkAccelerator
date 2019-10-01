@@ -25,10 +25,10 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==config_mpsoc_ax
 # IP: bd/config_mpsoc/ip/config_mpsoc_xlconcat_0_0/config_mpsoc_xlconcat_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==config_mpsoc_xlconcat_0_0 || ORIG_REF_NAME==config_mpsoc_xlconcat_0_0} -quiet] -quiet
 
-# IP: bd/config_mpsoc/ip/config_mpsoc_auto_ds_1/config_mpsoc_auto_ds_1.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==config_mpsoc_auto_ds_1 || ORIG_REF_NAME==config_mpsoc_auto_ds_1} -quiet] -quiet
+# IP: bd/config_mpsoc/ip/config_mpsoc_auto_ds_0_1/config_mpsoc_auto_ds_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==config_mpsoc_auto_ds_0 || ORIG_REF_NAME==config_mpsoc_auto_ds_0} -quiet] -quiet
 
-# IP: bd/config_mpsoc/ip/config_mpsoc_auto_pc_1/config_mpsoc_auto_pc_1.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==config_mpsoc_auto_pc_1 || ORIG_REF_NAME==config_mpsoc_auto_pc_1} -quiet] -quiet
+# IP: bd/config_mpsoc/ip/config_mpsoc_auto_pc_0_1/config_mpsoc_auto_pc_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==config_mpsoc_auto_pc_0 || ORIG_REF_NAME==config_mpsoc_auto_pc_0} -quiet] -quiet
 
 # XDC: bd/config_mpsoc/config_mpsoc_ooc.xdc

@@ -1,0 +1,151 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x887CE5A373037F35",
+      "device": "xczu9eg-ffvb1156-2-e",
+      "name": "PEtest",
+      "synth_flow_mode": "None",
+      "tool_version": "2019.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "pe_0": ""
+    },
+    "ports": {
+      "clk_100MHz": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "PEtest_clk_100MHz",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000",
+            "value_src": "default"
+          }
+        }
+      },
+      "w_out": {
+        "type": "data",
+        "direction": "O",
+        "left": "31",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {float {sigwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 24}}}}}}",
+            "value_src": "const_prop"
+          }
+        }
+      },
+      "x_out": {
+        "type": "data",
+        "direction": "O",
+        "left": "31",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {float {sigwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 24}}}}}}",
+            "value_src": "const_prop"
+          }
+        }
+      },
+      "result": {
+        "type": "data",
+        "direction": "O",
+        "left": "31",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {float {sigwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 24}}}}}}",
+            "value_src": "const_prop"
+          }
+        }
+      },
+      "x_in": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "w_in": {
+        "type": "data",
+        "direction": "I",
+        "left": "31",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "rst_in": {
+        "type": "data",
+        "direction": "I",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      }
+    },
+    "components": {
+      "pe_0": {
+        "vlnv": "User_Company:SysGen:pe:1.0",
+        "xci_name": "PEtest_pe_0_0"
+      }
+    },
+    "nets": {
+      "pe_0_w_out": {
+        "ports": [
+          "pe_0/w_out",
+          "w_out"
+        ]
+      },
+      "pe_0_x_out": {
+        "ports": [
+          "pe_0/x_out",
+          "x_out"
+        ]
+      },
+      "pe_0_result_out": {
+        "ports": [
+          "pe_0/result_out",
+          "result"
+        ]
+      },
+      "x_in_1": {
+        "ports": [
+          "x_in",
+          "pe_0/x_in"
+        ]
+      },
+      "w_in_1": {
+        "ports": [
+          "w_in",
+          "pe_0/w_in"
+        ]
+      },
+      "rst_in_1": {
+        "ports": [
+          "rst_in",
+          "pe_0/rst_in"
+        ]
+      },
+      "clk_100MHz_1": {
+        "ports": [
+          "clk_100MHz",
+          "pe_0/clk"
+        ]
+      }
+    }
+  }
+}

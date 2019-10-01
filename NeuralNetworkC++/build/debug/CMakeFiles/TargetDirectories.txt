@@ -1,0 +1,3 @@
+/mnt/c/Users/prodrigu/git/simpleNeuralNetwork/NeuralNetworkC++/build/debug/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/prodrigu/git/simpleNeuralNetwork/NeuralNetworkC++/build/debug/CMakeFiles/main.dir
+/mnt/c/Users/prodrigu/git/simpleNeuralNetwork/NeuralNetworkC++/build/debug/CMakeFiles/edit_cache.dir
